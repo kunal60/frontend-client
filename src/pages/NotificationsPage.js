@@ -11,7 +11,7 @@ const NotificationsPage = () => {
         fetchNotifications();
 
         // Set up interval to fetch notifications every 30 seconds
-        const interval = setInterval(fetchNotifications, 30000);
+        const interval = setInterval(fetchNotifications, 5000);
 
         // Clear interval on component unmount
         return () => clearInterval(interval);
@@ -19,15 +19,14 @@ const NotificationsPage = () => {
 
     // Fetch notifications from the server
     const fetchNotifications = async () => {
-        console.log('Calling from fetchNotifications')
         try {
             const response = await fetch('http://127.0.0.1:3001/api/notifications'); // Correct endpoint
             const data = await response.json();
-            const { count, name } = data;
+            const { count, articleName } = data; // Change 'name' to 'articleName'
 
             // If the incoming count is greater than the current count, show notification
             if (count > currentCount) {
-                showNotification(name);
+                showNotification(articleName); // Pass 'articleName' to showNotification function
             }
 
             // Update the current count
@@ -60,9 +59,10 @@ const NotificationsPage = () => {
 
     return (
         <div>
-            <h1>Notifications</h1>
+            <h1>Notifications1</h1>
             {/* Show notification icon if showNotificationIcon is true */}
-            {showNotificationIcon && <div className="notification-icon" onClick={hideNotificationIcon}>New Article Published!</div>}
+            {showNotificationIcon && <div className="notification-icon" onClick={hideNotificationIcon}>New Article Published: {notifications.articleName}!</div>}
+
             <Notifications notifications={notifications} />
         </div>
     );
