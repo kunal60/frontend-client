@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import UploadPage from '../pages/UploadPage';
-import DashboardPage from '../pages/DashboardPage';
+import NotificationsPage from '../pages/NotificationsPage';
+import QuestionPromptPage from '../pages/QuestionPromptPage';
 
 const App = () => {
     return (
@@ -9,9 +9,10 @@ const App = () => {
         <div>
             {/* Add a div as a container for route content */}
             <div className="container">
+                <div>Hellp</div>
                 <Routes>
-                    <Route exact path="/" element={<UploadPage />} />
-                    <Route exact path="/dashboard" element={<DashboardPage />} />
+                <Route exact path="/" component={NotificationsPage} />
+                <Route exact path="/ask" component={QuestionPromptPage} />
                 </Routes>
             </div>
         </div>
@@ -20,3 +21,6 @@ const App = () => {
 };
 
 export default App;
+
+
+
