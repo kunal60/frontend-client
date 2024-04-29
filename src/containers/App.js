@@ -1,26 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import NotificationsPage from '../pages/NotificationsPage';
-import QuestionPromptPage from '../pages/QuestionPromptPage';
+import NotificationsPage from '../pages/NotificationsPage'; // Update import path
+import QuestionPromptPage from '../pages/QuestionPromptPage'; // Update import path
 
 const App = () => {
     return (
         <Router>
-        <div>
-            {/* Add a div as a container for route content */}
             <div className="container">
-                <div>Hellp</div>
+                {/* Add content for the NotificationsPage */}
                 <Routes>
-                <Route exact path="/" component={NotificationsPage} />
-                <Route exact path="/ask" component={QuestionPromptPage} />
+                    <Route exact path="/" element={<NotificationsPage />} />
+                    {/* <Route exact path="/ask" element={<QuestionPromptPage />} /> */}
                 </Routes>
             </div>
-        </div>
-    </Router>
+        </Router>
     );
 };
 
 export default App;
-
-
-
