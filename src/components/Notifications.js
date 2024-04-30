@@ -18,7 +18,6 @@ const Notifications = ({ notifications }) => {
 
     return (
         <div>
-            <h1>Notifications2</h1>
             {/* Render notifications UI here */}
             {notificationList.map(notification => (
                 <div key={notification.id}>

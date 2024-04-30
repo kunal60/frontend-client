@@ -58,7 +58,7 @@ const NotificationsPage = () => {
 
     return (
         <div>
-            <h1>Notifications</h1>
+            <h1>Checking Research Notifications</h1>
             {/* Show notification icon only when there's a new notification */}
             {showNotificationIcon && (
                 <div className="notification-container">
