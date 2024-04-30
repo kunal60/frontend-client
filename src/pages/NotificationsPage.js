@@ -32,22 +32,27 @@ const NotificationsPage = () => {
             if (showArticleNotification) {
                 setShowNotificationIcon(true);
                 setArticleName(articleName);
-
-                // Hide the notification icon after 5 seconds
-                setTimeout(() => {
-                    setShowNotificationIcon(false);
-                }, 5000);
             }
         } catch (error) {
             console.error('Error fetching notifications:', error);
         }
     };
 
+    // Show article name when notification icon is clicked (optional)
+    const handleBellClick = () => {
+        // Implement logic to display the article name (e.g., show a modal)
+    };
+
     return (
         <div>
             <h1>Notifications</h1>
             {/* Show notification icon only when there's a new notification */}
-            {showNotificationIcon && <div className="notification-icon"><img src={bell1Icon} alt="Notification Bell" /></div>}
+            {showNotificationIcon && (
+                <div className="notification-container">
+                    <img src={bell1Icon} alt="Notification Bell" />
+                    <span>A new Article named: {articleName} is published!</span>
+                </div>
+            )}
             <Notifications notifications={notifications} />
         </div>
     );
